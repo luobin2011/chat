@@ -40,13 +40,14 @@ if(!$user || !$user['uname']){
 	margin-left: 10px;
 	padding: 4px;
 	border: 1px solid #66f;
+	width:77%;
 }
 #chat .talkwith .user{
 	font-weight: bold;
 }
 #chat .messages_div{
 	margin-top: 6px;
-	width: 462px;
+	width: auto;
 	height: 320px;
 	border: 1px solid #999;
 	overflow: auto;
@@ -125,7 +126,7 @@ if(!$user || !$user['uname']){
 	</div>
 </div>
 
-<div style="float: left; margin-left: 20px;">
+<div style="float: left; margin-left: 20px;display:none;">
 	<p>Download <a href="https://github.com/ideawu/icomet-demos/blob/master/chat-android/CSClient.apk?raw=true" target="_blank">Android APK</a>.</p>
 	<div id="qrcode">
 	</div>
@@ -351,6 +352,9 @@ $(function(){
 		callback: function(content){
 			var msg = JSON.parse(content);
 			contactList.onNewMessage(msg);
+			try {
+                showNoti(msg.from+"\n"+msg.text);
+            }catch(e){}
 		}
 	};
 	comet = new iComet(conf);

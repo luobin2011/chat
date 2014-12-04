@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>iComet Example Chat</title>
@@ -25,8 +25,12 @@
 	<script src="js/jquery.qrcode.min.js"></script>
 	<script src="js/icomet.js"></script>
 	<script src="js/json2.js"></script>
+
+	<link href="notifications.css" type="text/css" rel="stylesheet"/>
+    <script src="angular.min.js"></script>
+    <script type="text/javascript" src="desktop-notify-min.js"></script>
+    <script type="text/javascript" src="noti.js"></script>
 </head>
 <body>
-
-
+<iframe name="main"  width="100%" height="46" frameborder="0" border=0 scrolling="no" marginwidth="0" marginheight="0" src="noti.html"></iframe>
 <div class="container">
