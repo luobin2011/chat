@@ -1,0 +1,192 @@
+<html lang="en" class="demo js cssanimations">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta name="renderer" content="webkit">
+<title>查询结果</title>
+<meta name="description" content="">
+<link rel="alternate icon" type="image/png" href="assets/i/favicon.png">
+<link rel="icon" type="image/svg+xml" href="assets/i/favicon.svg">
+<link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style"
+	content="black-translucent">
+<link rel="stylesheet" href="assets/css/amui.all.min.css">
+<link rel="stylesheet" href="assets/css/amaze.min.css">
+<script src="assets/lib/zepto/zepto.min.js"></script>
+<script src="assets/lib/handlebars/handlebars.min.js"></script>
+<script src="assets/js/amui.min.js"></script>
+    <script>
+        $(function(){
+            $("#btn-back").click(function(){
+                history.go(-1);
+            });
+        });
+    </script>
+</head>
+<body>
+	<div class="page pg-demo">
+		<!--<header class="demo-bar">
+			<a href="login.html" class="am-icon-home demo-icon-home"></a>-->
+        <header class="demo-header widget-hd" style="background-color:#0e90d2;">
+            <span class="am-icon-chevron-left" id="btn-back"></span>
+			<h1>查询结果</h1>
+		</header>
+		<div id="demo-view" data-backend-compiled="">
+			<section data-am-widget="accordion"
+				class="am-accordion am-accordion-default am-no-layout"
+				data-am-accordion="{ \"multiple\": true }">
+				<dl class="am-accordion-item am-active">
+					<dt class="am-accordion-title">基本信息</dt>
+					<dd class="am-accordion-content am-collapse am-in">
+						
+						<table class="am-table">
+							<tbody>
+								<tr>
+									<td>柜号 / 柜型</td>
+									
+									<td>BSIU2747707 / 20GP</td>
+								</tr>
+								<tr>
+									<td>交接单封条号</td>
+									
+									<td>CH1590859</td>
+								</tr>
+								<tr class="am-active">
+									<td>预计头程时间</td>
+									
+									<td>2014-09-01</td>
+								</tr>
+								<tr>
+									<td>拖车地点</td>
+									
+									<td>三水白坭荣冠马赛克仓<br>三水白坭荣冠马赛克仓</td>
+								</tr>
+								<tr>
+									<td>毛重(kg)</td>
+									
+									<td>暂无毛重信息</td>
+								</tr>
+							</tbody>
+						</table>
+
+						
+					</dd>
+				</dl>
+				<dl class="am-accordion-item">
+					<dt class="am-accordion-title">出入闸信息</dt>
+					<dd class="am-accordion-content am-collapse">
+					
+					<table class="am-table">
+							<tbody>
+								<tr>
+									<td>出闸时间</td>
+									
+									<td>2014-08-28 21:20</td>
+								</tr>
+								<tr>
+									<td>车牌号</td>
+									
+									<td>粤H16301</td>
+								</tr>
+								<tr class="am-active">
+									<td>司机电话</td>
+									
+									<td>13536678026</td>
+								</tr>
+								<tr>
+									<td>调度电话</td>
+									
+									<td>13809813015</td>
+								</tr>
+								<tr>
+									<td>入闸时间</td>
+									
+									<td>2014-08-29 14:31</td>
+								</tr>
+							</tbody>
+						</table>
+					
+					</dd>
+				</dl>
+				<dl class="am-accordion-item">
+					<dt class="am-accordion-title">通关信息</dt>
+					<dd class="am-accordion-content am-collapse">
+					
+					<table class="am-table">
+							<tbody>
+								<tr>
+									<td>报关状态</td>
+									
+									<td>海关已放行</td>
+								</tr>
+								<tr>
+									<td>海关放行时间</td>
+									
+									<td>2014-09-01 15:23</td>
+								</tr>
+								<tr class="am-active">
+									<td>报检状态</td>
+									
+									<td>商检已放行</td>
+								</tr>
+								<tr>
+									<td>商检放行时间</td>
+									
+									<td>2014-09-01 15:26</td>
+								</tr>
+								<tr>
+									<td>底单上传状态</td>
+									
+									<td>已上传</td>
+								</tr>
+							</tbody>
+						</table>
+					
+					</dd>
+				</dl>
+				<dl class="am-accordion-item">
+					<dt class="am-accordion-title">装船信息</dt>
+					<dd class="am-accordion-content am-collapse">
+					
+					<table class="am-table">
+							<tbody>
+								<tr>
+									<td>船名</td>
+									
+									<td>佛航868</td>
+								</tr>
+								<tr>
+									<td>航次</td>
+									
+									<td>140901000000</td>
+								</tr>
+								<tr class="am-active">
+									<td>装船封条号</td>
+									
+									<td>CH1590859</td>
+								</tr>
+								<tr>
+									<td>装船时间</td>
+									
+									<td>2014-09-01</td>
+								</tr>
+							</tbody>
+						</table>
+					
+					</dd>
+				</dl>
+				<dl class="am-accordion-item">
+					<dt class="am-accordion-title">相关信息</dt>
+					<dd class="am-accordion-content am-collapse">
+					订舱单号为CAN420401300，总共1个柜。<br/>
+                        <a href="rso.html">点击查看详细列表</a>
+					</dd>
+				</dl>
+			</section>
+		</div>
+		</div>
+	</body>
+</html>

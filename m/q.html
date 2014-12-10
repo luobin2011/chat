@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html><head lang="en">
+  <meta charset="UTF-8">
+  <title>查询平台</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <link rel="alternate icon" type="image/png" href="assets/i/favicon.png">
+  <link rel="stylesheet" href="assets/css/amui.all.min.css">
+  <style>
+    .header {
+      text-align: center;
+    }
+    .header h1 {
+      font-size: 200%;
+      color: #333;
+      margin-top: 30px;
+    }
+    .header p {
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+<div class="header">
+  <div class="am-g">
+    <h1>查询平台</h1>
+    <p>请输入完整的柜号或订舱单号查询，不区分大小写。</p>
+  </div>
+  <hr>
+</div>
+<div class="am-g">
+  <div class="col-lg-6 col-md-8 col-sm-centered">
+        
+	<form method="post" class="am-form" action="landing.html">
+      <label for="email">柜号:</label>
+      <input type="email" name="" id="email" value="">
+      <br>
+      <label for="password">订舱单号:</label>
+      <input type="password" name="" id="password" value=""><br><label for="rcode">验证码:</label>
+<img id="codeImg" src="http://219.130.222.62:9292/YMS2/image.jsp">
+      <input type="text" name="" id="rcode" value="">
+      
+      <br>
+      
+      <label for="remember-me">
+        <input id="remember-me" type="radio" name="qtype" checked="">
+        出口
+      </label><select id="qtype11" name="queryType_0" style="display:inline;width:auto;">
+<option value="0">拖车</option>
+<option value="1">码头内装</option>
+</select>
+<label for="remember-me2" style="margin-left:30px">
+        <input id="remember-me2" type="radio" name="qtype">
+        进口
+      </label>
+      <br>
+      <div class="am-cf">
+        <input type="submit" name="" value="查 询" class="am-btn am-btn-primary am-btn-sm am-fl">
+        
+      </div>
+    </form>
+    
+    <hr>
+    <p>© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
+  </div>
+</div>
+
+</body></html>

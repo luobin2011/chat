@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html class="demo js cssanimations"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="user-scalable=0,width=device-width,initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta name="renderer" content="webkit">
+<title>Chat | Amaze UI</title>
+<meta name="description" content="">
+<link rel="alternate icon" type="image/png" href="assets/i/favicon.png">
+<link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="stylesheet" href="assets/css/amui.all.min.css">
+<link rel="stylesheet" href="assets/css/amaze.min.css">
+
+<script src="assets/js/zepto.min.js"></script>
+<script src="assets/js/handlebars.min.js"></script>
+<script src="assets/js/amui.min.js"></script>
+
+<style type="text/css">/**
+* Duoshuo Comments Style for Amaze UI
+* by Minwe
+*/
+
+#ds-thread #ds-reset .ds-meta {
+border-bottom-color: #eee;
+}
+
+
+/* Like button */
+
+#ds-thread #ds-reset a.ds-like-thread-button {
+border: 1px solid #ddd;
+background: #f8f8f8;
+border-radius: 2px;
+}
+
+
+/* Comments counter */
+
+#ds-thread #ds-reset li.ds-tab a.ds-current {
+border: 1px solid #ddd;
+background-color: #f8f8f8;
+border-radius: 2px;
+}
+
+
+#ds-thread #ds-reset #ds-hot-posts {
+border-color: #eee;
+border-width: 0 0 1px;
+margin: 10px 0;
+padding-bottom: 15px;
+border-radius: 0;
+}
+
+
+/* Main avatar */
+
+#ds-reset .ds-avatar img {
+width: 48px;
+height: 48px;
+border-radius: 50%;
+padding: 1px;
+background-color: #fff;
+}
+
+
+/* Comments list */
+
+#ds-thread #ds-reset .ds-comments {
+border-top: 1px solid #eee;
+border-bottom: 1px solid #eee;
+padding: 10px 0 20px;
+margin-bottom: 5px;
+}
+
+
+#ds-thread #ds-reset li.ds-post {
+border-top: none;
+}
+
+
+#ds-thread #ds-reset .ds-post-self {
+padding: 10px 2px;
+}
+
+
+#ds-thread #ds-reset .ds-comment-body {
+position: relative;
+margin-left: 62px;
+border: 1px solid #ddd;
+padding: 0 10px 10px!important;
+border-radius: 2px;
+}
+
+
+#ds-thread #ds-reset .ds-comment-body:before,
+#ds-thread #ds-reset .ds-comment-body:after {
+position: absolute;
+top: 8px;
+left: -8px;
+right: 100%;
+width: 0;
+height: 0;
+display: block;
+content: " ";
+border-color: transparent;
+border-style: solid solid dotted;
+border-width: 8px 8px 8px 0;
+pointer-events: none;
+}
+
+
+#ds-thread #ds-reset .ds-comment-body:before {
+border-right-color: #dedede;
+z-index: 1;
+}
+
+
+#ds-thread #ds-reset .ds-comment-body:after {
+border-right-color: #f8f8f8;
+margin-left: 1px;
+z-index: 2;
+}
+
+
+#ds-thread #ds-reset .ds-comment-header {
+background-color: #f8f8f8;
+padding: 10px;
+margin-left: -10px;
+margin-right: -10px;
+border-bottom: 1px solid #eee;
+font-weight: 500;
+margin-bottom: 10px;
+font-size: 14px;
+}
+
+
+#ds-thread #ds-reset .ds-comment-body p {
+font-size: 14px;
+}
+
+
+#ds-thread #ds-reset .ds-comment-footer {
+margin-top: 15px;
+font-size: 13px;
+}
+
+
+/* Nested */
+
+#ds-thread #ds-reset #ds-ctx {
+font-size: 13px;
+margin-bottom: 15px;
+}
+
+
+#ds-reset #ds-ctx .ds-ctx-entry .ds-avatar {
+border-radius: 50%;
+}
+
+
+/* Comment textarea */
+
+#ds-thread #ds-reset .ds-textarea-wrapper {
+background-image: none;
+border-top-right-radius: 2px;
+border-top-left-radius: 2px;
+border-color: #ddd;
+}
+
+
+#ds-reset .ds-gradient-bg {
+background: #f8f8f8;
+}
+
+
+#ds-thread #ds-reset .ds-post-options {
+border-bottom-left-radius: 2px;
+border-color: #ddd;
+height: 36px;
+}
+
+
+#ds-thread #ds-reset .ds-sync {
+line-height: 34px;
+}
+
+
+#ds-thread #ds-reset .ds-toolbar-buttons {
+top: 8px;
+left: 10px;
+}
+
+
+#ds-thread #ds-reset .ds-textarea-wrapper textarea {
+font-size: 14px;
+}
+
+
+/* Post Butoon */
+
+#ds-thread #ds-reset .ds-post-button {
+border-bottom-right-radius: 2px;
+background: #3bb4f2;
+color: #fff;
+text-shadow: none;
+box-shadow: none;
+border: 1px solid #ddd;
+height: 38px;
+}
+
+
+#ds-thread #ds-reset .ds-post-button:hover {
+background: #0f9ae0;
+color: #fff;
+text-shadow: none;
+}
+
+
+#ds-thread #ds-reset .ds-post-button:focus,
+#ds-thread #ds-reset .ds-post-button:active {
+outline: 0;
+}
+
+
+#ds-thread #ds-reset .ds-paginator {
+margin-bottom: 20px;
+}
+
+
+#ds-thread #ds-reset .ds-paginator a:hover,
+#ds-thread #ds-reset .ds-paginator a.ds-current {
+border-radius: 2px;
+border-color: #ddd;
+}
+
+
+/** Icon - Dependence FontAwesome */
+
+.ds-icon:before,
+.ds-add-emote:before,
+.ds-toolbar-button:before {
+display: inline-block;
+font-family: "FontAwesome";
+font-weight: normal;
+font-style: normal;
+vertical-align: baseline;
+line-height: 1;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+
+.ds-icon-heart,
+.ds-icon-reply,
+.ds-icon-like,
+.ds-icon-share,
+.ds-icon-report,
+.ds-icon-delete,
+.ds-icon-settings {
+line-height: 13px !important;
+background-image: none !important;
+}
+
+
+.ds-icon-heart:before {
+content: "\f004";
+color: #dd514c;
+}
+
+
+.ds-icon-reply:before {
+content: "\f112";
+}
+
+
+.ds-icon-like:before {
+content: "\f08a";
+}
+
+
+.ds-icon-share:before {
+content: "\f064";
+}
+
+
+.ds-icon-report:before {
+content: "\f06a";
+}
+
+
+.ds-icon-delete:before {
+content: "\f00d";
+}
+
+
+.ds-icon-settings {
+font-size: 12px !important;
+}
+
+
+.ds-icon-settings:before {
+content: "\f013";
+}
+
+
+.ds-add-emote,
+.ds-toolbar-button {
+line-height: 19px !important;
+background: none !important;
+font-size: 18px !important;
+}
+
+
+.ds-add-emote:before {
+content: "\f118";
+}
+
+
+.ds-add-image:before {
+content: "\f03e";
+}
+
+
+/* Narrow */
+#ds-thread.ds-narrow #ds-reset .ds-comment-body {
+margin-left: 45px;
+}
+</style>
+<link type="text/css" rel="stylesheet" href="assets/css/embed.default.css">
+<style type="text/css">/**
+* Duoshuo Comments Style for Amaze UI
+* by Minwe
+*/
+
+#ds-thread #ds-reset .ds-meta {
+border-bottom-color: #eee;
+}
+
+
+/* Like button */
+
+#ds-thread #ds-reset a.ds-like-thread-button {
+border: 1px solid #ddd;
+background: #f8f8f8;
+border-radius: 2px;
+}
+
+
+/* Comments counter */
+
+#ds-thread #ds-reset li.ds-tab a.ds-current {
+border: 1px solid #ddd;
+background-color: #f8f8f8;
+border-radius: 2px;
+}
+
+
+#ds-thread #ds-reset #ds-hot-posts {
+border-color: #eee;
+border-width: 0 0 1px;
+margin: 10px 0;
+padding-bottom: 15px;
+border-radius: 0;
+}
+
+
+/* Main avatar */
+
+#ds-reset .ds-avatar img {
+width: 48px;
+height: 48px;
+border-radius: 50%;
+padding: 1px;
+background-color: #fff;
+}
+
+
+/* Comments list */
+
+#ds-thread #ds-reset .ds-comments {
+border-top: 1px solid #eee;
+border-bottom: 1px solid #eee;
+padding: 10px 0 20px;
+margin-bottom: 5px;
+}
+
+
+#ds-thread #ds-reset li.ds-post {
+border-top: none;
+}
+
+
+#ds-thread #ds-reset .ds-post-self {
+padding: 10px 2px;
+}
+
+
+#ds-thread #ds-reset .ds-comment-body {
+position: relative;
+margin-left: 62px;
+border: 1px solid #ddd;
+padding: 0 10px 10px!important;
+border-radius: 2px;
+}
+
+
+#ds-thread #ds-reset .ds-comment-body:before,
+#ds-thread #ds-reset .ds-comment-body:after {
+position: absolute;
+top: 8px;
+left: -8px;
+right: 100%;
+width: 0;
+height: 0;
+display: block;
+content: " ";
+border-color: transparent;
+border-style: solid solid dotted;
+border-width: 8px 8px 8px 0;
+pointer-events: none;
+}
+
+
+#ds-thread #ds-reset .ds-comment-body:before {
+border-right-color: #dedede;
+z-index: 1;
+}
+
+
+#ds-thread #ds-reset .ds-comment-body:after {
+border-right-color: #f8f8f8;
+margin-left: 1px;
+z-index: 2;
+}
+
+
+#ds-thread #ds-reset .ds-comment-header {
+background-color: #f8f8f8;
+padding: 10px;
+margin-left: -10px;
+margin-right: -10px;
+border-bottom: 1px solid #eee;
+font-weight: 500;
+margin-bottom: 10px;
+font-size: 14px;
+}
+
+
+#ds-thread #ds-reset .ds-comment-body p {
+font-size: 14px;
+}
+
+
+#ds-thread #ds-reset .ds-comment-footer {
+margin-top: 15px;
+font-size: 13px;
+}
+
+
+/* Nested */
+
+#ds-thread #ds-reset #ds-ctx {
+font-size: 13px;
+margin-bottom: 15px;
+}
+
+
+#ds-reset #ds-ctx .ds-ctx-entry .ds-avatar {
+border-radius: 50%;
+}
+
+
+/* Comment textarea */
+
+#ds-thread #ds-reset .ds-textarea-wrapper {
+background-image: none;
+border-top-right-radius: 2px;
+border-top-left-radius: 2px;
+border-color: #ddd;
+}
+
+
+#ds-reset .ds-gradient-bg {
+background: #f8f8f8;
+}
+
+
+#ds-thread #ds-reset .ds-post-options {
+border-bottom-left-radius: 2px;
+border-color: #ddd;
+height: 36px;
+}
+
+
+#ds-thread #ds-reset .ds-sync {
+line-height: 34px;
+}
+
+
+#ds-thread #ds-reset .ds-toolbar-buttons {
+top: 8px;
+left: 10px;
+}
+
+
+#ds-thread #ds-reset .ds-textarea-wrapper textarea {
+font-size: 14px;
+}
+
+
+/* Post Butoon */
+
+#ds-thread #ds-reset .ds-post-button {
+border-bottom-right-radius: 2px;
+background: #3bb4f2;
+color: #fff;
+text-shadow: none;
+box-shadow: none;
+border: 1px solid #ddd;
+height: 38px;
+}
+
+
+#ds-thread #ds-reset .ds-post-button:hover {
+background: #0f9ae0;
+color: #fff;
+text-shadow: none;
+}
+
+
+#ds-thread #ds-reset .ds-post-button:focus,
+#ds-thread #ds-reset .ds-post-button:active {
+outline: 0;
+}
+
+
+#ds-thread #ds-reset .ds-paginator {
+margin-bottom: 20px;
+}
+
+
+#ds-thread #ds-reset .ds-paginator a:hover,
+#ds-thread #ds-reset .ds-paginator a.ds-current {
+border-radius: 2px;
+border-color: #ddd;
+}
+
+
+/** Icon - Dependence FontAwesome */
+
+.ds-icon:before,
+.ds-add-emote:before,
+.ds-toolbar-button:before {
+display: inline-block;
+font-family: "FontAwesome";
+font-weight: normal;
+font-style: normal;
+vertical-align: baseline;
+line-height: 1;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+
+.ds-icon-heart,
+.ds-icon-reply,
+.ds-icon-like,
+.ds-icon-share,
+.ds-icon-report,
+.ds-icon-delete,
+.ds-icon-settings {
+line-height: 13px !important;
+background-image: none !important;
+}
+
+
+.ds-icon-heart:before {
+content: "\f004";
+color: #dd514c;
+}
+
+
+.ds-icon-reply:before {
+content: "\f112";
+}
+
+
+.ds-icon-like:before {
+content: "\f08a";
+}
+
+
+.ds-icon-share:before {
+content: "\f064";
+}
+
+
+.ds-icon-report:before {
+content: "\f06a";
+}
+
+
+.ds-icon-delete:before {
+content: "\f00d";
+}
+
+
+.ds-icon-settings {
+font-size: 12px !important;
+}
+
+
+.ds-icon-settings:before {
+content: "\f013";
+}
+
+
+.ds-add-emote,
+.ds-toolbar-button {
+line-height: 19px !important;
+background: none !important;
+font-size: 18px !important;
+}
+
+
+.ds-add-emote:before {
+content: "\f118";
+}
+
+
+.ds-add-image:before {
+content: "\f03e";
+}
+
+
+/* Narrow */
+#ds-thread.ds-narrow #ds-reset .ds-comment-body {
+margin-left: 45px;
+}
+</style>
+<link href="../notifications.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<div class="page pg-demo">
+    <header class="demo-bar">
+        <!--
+        <a href="../../../../widgets/m" class="am-icon-home demo-icon-home"></a>
+        -->
+        <h1>粤E19436</h1></header>
+    <div class="warningMsg" data-ng-show="!isSupported" style="display:none;">
+        Desktop notifications are currently not supported for your browser.
+        <p>
+            Open the page in Chrome(version 23+), Safari(version6+), Firefox(with ff-html5notifications plugin installed) and IE9+.
+    </div>
+    <div class="warningMsg" style="display:none;"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="33acd246116eee15c0cf56e2b006444f"
+         data-title="美洽客服 - default（默认） | Amaze UI">
+        <div id="ds-reset">
+
+
+            <ul class="ds-comments">
+                <li class="ds-post" data-post-id="1163513100117215463">
+                    <div class="ds-post-self" data-post-id="1163513100117215463" data-thread-id="1163513100117217070"
+                         data-root-id="0" data-source="duoshuo">
+                        <div class="ds-avatar"><img src="assets/i/noavatar_default.png" alt="22"></div>
+                        <div class="ds-comment-body">
+
+                            <p>12231</p>
+
+                            <div class="ds-comment-footer ds-comment-actions"><span class="ds-time"
+                                                                                    datetime="2014-11-11T19:36:20+08:00"
+                                                                                    title="2014年11月11日 19:36:20">2014年11月11日 下午7:36:20</span>
+                                <a class="ds-post-reply" href="javascript:void(0);"><span
+                                        class="ds-icon ds-icon-reply"></span>确认</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+
+            </ul>
+            <div class="ds-paginator" style="display: none;">
+                <div class="ds-border"></div>
+                <a data-page="1" href="javascript:void(0);" class="ds-current">1</a></div>
+            <a name="respond"></a>
+
+
+            <div class="ds-replybox"><a class="ds-avatar" href="javascript:void(0);" onclick="return false"><img
+                    src="assets/i/noavatar_default.png" alt=""></a>
+
+
+                <div class="ds-textarea-wrapper ds-rounded-top"><textarea name="message"
+                                                                          title="Ctrl+Enter快捷提交"></textarea>
+                    <pre class="ds-hidden-text"></pre>
+                </div>
+                <div class="ds-post-toolbar">
+                    <div class="ds-post-options ds-gradient-bg"><span class="ds-sync"></span></div>
+                    <button class="ds-post-button" type="submit">Send</button>
+                    <div class="ds-toolbar-buttons">
+                        <button onclick="getLocation();return;">GPS</button>
+                        <!--
+                        <a class="ds-toolbar-button ds-add-emote" title="插入表情"></a>
+                        <a class="ds-toolbar-button ds-add-image" title="插入图片"></a>
+                            -->
+                    </div>
+                </div>
+            </div>
+            <p class="ds-powered-by">Powered by 多说</p>
+        </div>
+    </div>
+
+</div>
+
+<script>
+function getLocation() {
+    if (navigator.geolocation) {
+        $.AMUI.progress.start();
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+        //x.innerHTML = "Geolocation is not supported by this browser.";
+        $($(".warningMsg")[1]).text("当前浏览器不支持获取GPS位置信息。").show();
+    }
+}
+
+function showPosition(position) {
+    $.AMUI.progress.done();
+    //x.innerHTML = "Latitude: " + position.coords.latitude +
+    //"<br>Longitude: " + position.coords.longitude;
+    $("textarea[name='message']").html("Latitude: " + position.coords.latitude +"<br>Longitude: " + position.coords.longitude);
+}
+
+function showError(error) {
+    var msg;
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            msg = "User denied the request for Geolocation."
+            break;
+        case error.POSITION_UNAVAILABLE:
+            msg = "Location information is unavailable."
+            break;
+        case error.TIMEOUT:
+            msg = "The request to get user location timed out."
+            break;
+        case error.UNKNOWN_ERROR:
+            msg = "An unknown error occurred."
+            break;
+    }
+    $($(".warningMsg")[1]).text(msg).show();
+    $.AMUI.progress.done();
+}
+
+</script>
+
+</body>
+</html>
